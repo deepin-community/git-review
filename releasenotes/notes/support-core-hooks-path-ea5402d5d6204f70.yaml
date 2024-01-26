@@ -1,0 +1,8 @@
+---
+fixes:
+  - |
+    git-review now handles the Git ``core.hooksPath`` configuration
+    option correctly. Thus, it installs the ``commit-msg`` hook into
+    the ``core.hooksPath`` directory, if that option is
+    set. Otherwise, it continues to install the hook into
+    ``.git/hooks``, relative to the root of the checkout.

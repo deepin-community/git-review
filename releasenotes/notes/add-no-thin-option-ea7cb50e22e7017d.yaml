@@ -1,0 +1,9 @@
+---
+features:
+  - |
+    Add support for --no-thin which is passed to git push. This is useful to
+    work around situations where Gerrit's JGit and git-review's C git
+    implementations cannot agree on the pack file contents used to transfer
+    a push. When they disagree you see this as unpack failures due to missing
+    trees. Using --no-thin avoids complicated negotiations and works around
+    this problem.

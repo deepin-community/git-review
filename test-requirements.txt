@@ -1,0 +1,8 @@
+# This is listed in order to preinstall PBR with pip as easy_install
+# on these older python versions can no longer reliably talk to pypi
+# due to non SNI TLS connections being disabled.
+pbr ; python_version >= "3" and python_version <= "3.5"
+hacking>=2.0.0,<2.1.0
+fixtures>=0.3.14
+stestr>=2.2.0,<3.0.0
+testtools>=0.9.34

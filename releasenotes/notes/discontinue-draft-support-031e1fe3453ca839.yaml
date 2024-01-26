@@ -1,0 +1,8 @@
+---
+upgrade:
+  - |
+    Not really a deprecation so much as a removal, Gerrit 2.15 (released in
+    2017) ceased providing a draft state for changes, and many large sites were
+    disabling support for it far earlier than that. As of now, git-review has
+    removed the ``-D`` and ``--draft`` options entirely, and so can no longer
+    push draft changes on old Gerrit deployments which still allowed them.

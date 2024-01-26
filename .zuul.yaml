@@ -1,0 +1,24 @@
+- project:
+    vars:
+      release_python: python3
+    templates:
+      - publish-opendev-tox-docs
+    check:
+      jobs: &jobs
+        - build-python-release
+        - tox-linters
+        - tox-py36:
+            nodeset: ubuntu-bionic
+        - tox-py37:
+            nodeset: ubuntu-bionic
+        - tox-py38
+        - tox-py39
+    gate:
+      jobs: *jobs
+    promote:
+      jobs:
+        - opendev-promote-python
+    release:
+      jobs:
+        - opendev-release-python
+        - opendev-publish-unversioned-tox-docs

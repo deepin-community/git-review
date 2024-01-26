@@ -1,0 +1,8 @@
+---
+fixes:
+  - |
+    For safety, attempts to push a commit with unstaged or uncommitted changes
+    in the worktree will be caught and an error reported, rather than leaving
+    it up to ``git rebase`` to spot them. This addresses a situation where
+    users enabling *rebase.autostash* would otherwise experience data loss when
+    the test rebase is subsequently reset.

@@ -1,0 +1,11 @@
+---
+upgrade:
+  - |
+    As of this release, git-review no longer supports running under the Python
+    2.7 interpreter. The major version component has been increased
+    accordingly. Users wishing to use git-review with Python 2.7 can cap their
+    installations like ``pip install "git-review<2"``, though pip version 9 and
+    later will use python_requires package metadata to avoid installing
+    git-review on an unsupported interpreter. Future removal of support for
+    Python 3 minor versions will only result in a minor version increase for
+    corresponding git-review releases.

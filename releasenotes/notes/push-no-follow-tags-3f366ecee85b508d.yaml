@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    The ``--no-follow-tags`` option to ``git push`` is now used for all pushes,
+    so that git-review won't error when encountering a local tag which is
+    absent from Gerrit.

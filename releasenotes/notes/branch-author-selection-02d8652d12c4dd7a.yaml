@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    A new ``gitreview.branchauthor`` option allows configuring the change
+    author (owner) name part of the autocreated branch name when downloading
+    changes.

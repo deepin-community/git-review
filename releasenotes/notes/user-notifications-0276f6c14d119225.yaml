@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Added the ``--notify`` option, which can be used to ensure specified
+    receivers receives email notifications
