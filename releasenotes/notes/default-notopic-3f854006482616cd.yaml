@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    A new ``gitreview.notopic`` configuration setting makes git-review always
+    behave as if the ``--notopic`` command line option was supplied.

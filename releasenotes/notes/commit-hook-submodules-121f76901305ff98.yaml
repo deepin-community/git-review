@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    The Change-Id generating commit hook is now installed into any detected Git
+    submodules, so that it will take effect when creating changes within a
+    submodule and not just in the parent repository.

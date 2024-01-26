@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    When checking for unstaged or uncommitted changes to avoid performing a
+    test rebase, unstaged and uncommitted changes in Git submodules are now
+    ignored since those won't be rebased anyway.

@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Improved version string parsing for Git in order to no longer break on Mac
+    OSX/Darwin systems (story 2010002).

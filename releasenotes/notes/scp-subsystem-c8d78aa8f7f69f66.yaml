@@ -1,0 +1,15 @@
+---
+fixes:
+  - |
+    OpenSSH has deprecated its use of scp/rcp protocol in favor of
+    SFTP, which the embedded Apache mina-sshd in widely-deployed
+    Gerrit versions does not yet support. The default officially
+    changed in OpenSSH 9.0 (some distributions, such as Fedora and
+    CentOS, switched their default behavior to this as early as
+    OpenSSH 8.7 or 8.8), leading to a ``subsystem request failed on
+    channel 0`` error during commit-msg hook retrieval. Now
+    git-review will attempt to detect whether scp's -O option is
+    available to force use of the legacy scp/rcp protocol, and apply
+    it if so. Future git-review versions may change the fallback
+    behavior once an SFTP subsystem is implemented and available for
+    a new Gerrit release.

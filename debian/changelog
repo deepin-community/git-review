@@ -1,5 +1,209 @@
-template-repository (1.0-1) unstable; urgency=medium
+git-review (2.3.1-3) unstable; urgency=medium
 
-  * Initial release
+  * Removed extraneous dependency on python3-six & python3-mock
+    (Closes: #1061163).
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Thomas Goirand <zigo@debian.org>  Tue, 23 Jan 2024 09:16:15 +0100
+
+git-review (2.3.1-2) unstable; urgency=medium
+
+  * Add fix-unit-test-for-python-3.12.patch (Closes: #1058247).
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 13 Dec 2023 15:51:35 +0100
+
+git-review (2.3.1-1) unstable; urgency=medium
+
+  * New upstream release:
+    - works with OpenSSH 9.X (Closes: #1012808).
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 30 Jun 2022 17:19:10 +0200
+
+git-review (2.2.0-1) unstable; urgency=medium
+
+  * New upstream release:
+    - works with newer Git releases (Closes: #1000666).
+  * Blacklist GitReviewUnitTest.test_notify().
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 27 Nov 2021 23:29:26 +0100
+
+git-review (1.28.0-2) unstable; urgency=medium
+
+  * Fix debian/watch to use git tags on opendev.org using the git mode.
+  * Add a debian/salsa-ci.yml.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 23 Nov 2020 10:54:11 +0100
+
+git-review (1.28.0-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Running wrap-and-sort -bast.
+  * Use debhelper-compat instead of debian/compat.
+  * Bump Standards-Version to 4.4.1.
+
+  [ Thomas Goirand ]
+  * Added Restrictions: superficial to d/tests/control (Closes: #969830).
+  * Fixed upstream URL in d/control, d/copyright and d/rules.
+  * New upstream release.
+  * Fixed (build-)depends and run unit tests.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 16 Sep 2020 21:25:20 +0200
+
+git-review (1.27.0-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+
+  [ Thomas Goirand ]
+  * New upstream release (Closes: #910101).
+  * Re-add openstack-pkg-tools, and switch back to Git tag workflow.
+  * Remove Allison Randal from uploaders, as she did absolutely nothing on this
+    package but set herself as Uploaders, she has let the package bitrot and
+    become outdated, gather bugs, etc.
+  * Remove Ghe Rivero as he didn't touch the package since 2013.
+  * Switch back the package to the OpenStack team, as nobody else is working on
+    it, unfortunately (so, fixed VCS URLs).
+  * Bump Standards-Version to 4.3.0 (no change).
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 29 Jan 2019 10:04:13 +0100
+
+git-review (1.26.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release (Closes: #887862, #887436)
+  * d/watch: Use https
+  * Bump debhelper compat level to 11
+  * d/copyright: Use https for Format
+  * Change priority from extra to optional
+  * Standards-Version is 4.1.3 now
+  * Add simple autopkgtests
+  * Switch to Python 3
+  * d/clean: Don't clean .egg_info
+  * d/copyright
+    - Add myself for Debian part
+    - Add new copyright holders from new upstream release
+  * wrap-and-sort -bast
+
+ -- Ondřej Nový <onovy@debian.org>  Sun, 21 Jan 2018 14:12:54 +0100
+
+git-review (1.25.0-3) unstable; urgency=medium
+
+  * Change maintainer, no longer under OpenStack PKG team.
+  * Remove git-buildpackage configuration for old OpenStack packaging
+    workflow.
+  * Remove build dependency on openstack-pkg-tools.
+  * Clean up .egg-info as in DPMT policy.
+
+ -- Allison Randal <allison@lohutok.net>  Sat, 05 Aug 2017 15:14:39 -0400
+
+git-review (1.25.0-2) unstable; urgency=medium
+
+  * Re-added missing in debian/rules:
+    - export OSLO_PACKAGE_VERSION=$(VERSION) (needed for pbr version to work)
+    - depends on openstack-pkg-tools to have this working.
+  * Ran wrap-and-sort -t -a.
+  * Removed not-needed version in depends (already in Jessie). Also removed
+    python-argparse as depends, and added it it pydist-overrides.
+  * Added extend-diff-ignore = "^[^/]*[.]egg-info/" to d/source/options.
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 13 Jun 2015 10:07:38 +0200
+
+git-review (1.25.0-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Modernize packaging.
+
+ -- Clint Adams <clint@debian.org>  Fri, 12 Jun 2015 23:27:02 -0400
+
+git-review (1.24-2) unstable; urgency=medium
+
+  * Now packaging the man page (Closes: #771049).
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 27 Nov 2014 01:32:02 +0800
+
+git-review (1.24-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Removed all patches, they are all applied upstream now.
+  * Build-depends on python-all, not just python.
+  * Avoid usless dh targets.
+  * Added missing export OSLO_PACKAGE_VERSION=$(VERSION)
+  * build-depends on python-pbr.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 01 Aug 2014 14:16:49 +0800
+
+git-review (1.23-2) unstable; urgency=medium
+
+  * Added Retrieve-remote-pushurl-independently-of-user-s-local.patch. Thanks
+    to Matteo Cypriani <mcy@lm7.fr> for the report (Closes: #751127).
+  * Fixed format 1.0 URL for debian/copyright.
+  * Added fix for man page (which I made upstream).
+  * Standards-Version: is now 3.9.5.
+  * More text for the extended description.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 11 Jun 2014 11:06:44 +0800
+
+git-review (1.23-1) unstable; urgency=low
+
+  * New upstream release.
+  * Upstream renamed README.md into README.rst, updated debian/docs.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 15 Aug 2013 19:55:36 +0200
+
+git-review (1.21-4) unstable; urgency=low
+
+  * Fixed debian/copyright and debian/control source and homepage URL. Thanks
+    to Laurent Bigonville for reporting (Closes: #700394).
+  * Added myself as uploader.
+  * Now depends on openstack-pkg-tools to have the debian/rules facility for
+    generating the orig.tar.xz.
+  * Ran wrap-and-sort.
+  * Rearanged a bit debian/copyright.
+  * Now using compat and debhelper 9.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 27 May 2013 11:17:49 +0800
+
+git-review (1.21-3) unstable; urgency=low
+
+  * Bumped debian policy verstion to 3.9.4
+
+ -- Ghe Rivero <ghe@debian.org>  Mon, 13 May 2013 10:24:16 +0200
+
+git-review (1.21-2) experimental; urgency=low
+
+  * Updated debian/control file
+
+ -- Ghe Rivero <ghe@debian.org>  Wed, 10 Apr 2013 03:24:49 -0400
+
+git-review (1.21-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added gbp.conf
+  * Updated maintainer mail
+
+ -- Ghe Rivero <ghe@debian.org>  Tue, 09 Apr 2013 10:52:23 -0400
+
+git-review (1.17-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ghe Rivero <ghe.rivero@stackops.com>  Sat, 30 Jun 2012 09:57:59 +0200
+
+git-review (1.16-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated section to "vcs". Closes: #668070
+  * Removed Vcs-* field from control. Closes: #668441
+
+ -- Ghe Rivero <ghe@debian.org>  Thu, 12 Apr 2012 11:52:11 +0200
+
+git-review (1.15-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Ghe Rivero <ghe.rivero@stackops.com>  Fri, 23 Mar 2012 08:28:39 +0100
+
+git-review (1.12-1) unstable; urgency=low
+
+  * Initial Debian Packaging
+
+ -- Ghe Rivero <ghe.rivero@stackops.com>  Thu, 01 Mar 2012 09:30:36 +0100

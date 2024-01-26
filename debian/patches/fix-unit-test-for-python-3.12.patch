@@ -1,0 +1,16 @@
+Description: Fix unit testing for Python 3.12
+Author: Thomas Goirand <zigo@debian.org>
+Forwarded: no
+Last-Update: 2023-12-13
+
+--- git-review-2.3.1.orig/git_review/tests/test_unit.py
++++ git-review-2.3.1/git_review/tests/test_unit.py
+@@ -105,7 +105,7 @@ class GitReviewConsole(testtools.TestCas
+ 
+         try:
+             with mock.patch('sys.argv', ['git-review', '--version']):
+-                with self.assertRaisesRegexp(SystemExit, '1'):
++                with self.assertRaisesRegex(SystemExit, '1'):
+                     cmd.main()
+         except Exception as e:
+             self.fail('Exception not expected: %s' % e)

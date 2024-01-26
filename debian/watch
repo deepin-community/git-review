@@ -1,0 +1,3 @@
+version=3
+opts="mode=git ,uversionmangle=s/\.0rc/~rc/;s/\.0a/~a/;s/\.0b1/~b1/;s/\.0b2/~b2/;s/\.0b3/~b3/" \
+https://opendev.org/opendev/git-review refs/tags/(\d[abrc\d\.]+)
